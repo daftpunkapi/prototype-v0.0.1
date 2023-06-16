@@ -45,8 +45,7 @@ def log_processing():
         'url' = 'jdbc:mysql://localhost:3306/flink',
         'table-name' = 'pending_orders_table',
         'username' = 'root',
-        'password' = 'sw23',
-        'driver' = 'com.mysql.jdbc.Driver'
+        'password' = 'sw23'
     )
     """
     t_env.execute_sql(sink_mysql)
@@ -58,7 +57,9 @@ def log_processing():
             FROM restuarant_live_pending_orders
             GROUP BY rest_id
         """
+    
     t_env.execute_sql(query).wait()
+
     
 if __name__ == '__main__':
     log_processing()

@@ -37,4 +37,4 @@ while True:
     producer.send('live_order_status', rest_live_str.encode('utf-8'))
     
     # Wait for 2 seconds
-    time.sleep(random.uniform(1,2))
+    time.sleep(random.uniform(1,15))
