@@ -1,5 +1,6 @@
 from flask import Flask, request
 from os import environ
+from model import get_recommendations
 
 app = Flask(__name__)
 
@@ -11,13 +12,11 @@ def customer_input():
     print("Customer ID:", customer_id)
     print("Zone:", zone)
 
-    # Internal API GET request for restuarant live pending orders
-    
-    # Internal API GET request for user 30d history
+    top5 = get_recommendations(customer_id,zone)
+    print(top5)
+    json_top5 = top5.to_json(orient='records')
 
-    # After both satisfy, then ML inference (gRPC / GET)
-    # return 'top 5 restuarants'
-    return  "OK"
+    return json_top5
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=environ.get("PORT", 3000))
