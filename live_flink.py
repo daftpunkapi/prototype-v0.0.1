@@ -13,6 +13,7 @@ def log_processing():
     env_settings = EnvironmentSettings.in_streaming_mode()
     t_env = TableEnvironment.create(env_settings)
     t_env.get_config().set("pipeline.jars", "file:///Users/Raghav/Desktop/prototype-v0.0.1/flink-sql-connector-kafka-1.17.1.jar;file:///Users/Raghav/Desktop/prototype-v0.0.1/mysql-connector-j-8.0.32.jar;file:///Users/Raghav/Desktop/prototype-v0.0.1/flink-connector-jdbc-3.1.0-1.17.jar")
+    # t_env.get_config().set("pipeline.jars", "file:///Users/karanbawejapro/Desktop/jarfiles/flink-sql-connector-kafka-1.17.1.jar;file:///Users/karanbawejapro/Desktop/jarfiles/mysql-connector-j-8.0.32.jar;file:///Users/karanbawejapro/Desktop/jarfiles/flink-connector-jdbc-3.1.0-1.17.jar")
     t_env.get_config().set("table.exec.source.idle-timeout", "1000")
     
     source_ddl = """
